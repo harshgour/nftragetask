@@ -13,7 +13,7 @@ function CardListing({ data, rows, load }) {
 					View All
 				</Link>
 			</div>
-			{!load && (
+			{load && (
 				<div
 					className='loader absolute top-1/4 left-1/2'
 					style={{ transform: "translateX(-50%)" }}></div>
