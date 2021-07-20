@@ -8,7 +8,7 @@ function CountryDetails({ data, index }) {
 				<div>
 					&#62;{" "}
 					<Link to='/' className='text-blue-500'>
-						Top Countries
+						Home
 					</Link>{" "}
 					&#62; {data.country}
 				</div>
@@ -16,15 +16,15 @@ function CountryDetails({ data, index }) {
 					{index > 0 && (
 						<Link
 							to={"/" + (index - 1)}
-							className='p-2 border-1 border-solid mx-2'>
-							&#60; Previous
+							className='p-2 border-1 border-solid ml-1 md:mx-2'>
+							&#60; <div className='hidden md:inline'>Previous</div>
 						</Link>
 					)}
 					{index < 199 && (
 						<Link
 							to={"/" + (index + 1)}
-							className='p-2 border-1 border-solid mx-2'>
-							Next &#62;
+							className='p-2 border-1 border-solid ml-1 md:mx-2'>
+							<div className='hidden md:inline'>Next</div> &#62;
 						</Link>
 					)}
 				</div>
