@@ -1,15 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function CountryDetails({ data }) {
+function CountryDetails({ data, index }) {
 	return (
 		<div className='flex flex-col space-y-6 h-full'>
-			<div className='bread-crumb'>
-				&#62;{" "}
-				<Link to='/' className='text-blue-500'>
-					Top Countries
-				</Link>{" "}
-				&#62; {data.country}
+			<div className='bread-crumb flex justify-between'>
+				<div>
+					&#62;{" "}
+					<Link to='/' className='text-blue-500'>
+						Top Countries
+					</Link>{" "}
+					&#62; {data.country}
+				</div>
+				<div className='prev-back'>
+					{index > 0 && (
+						<Link
+							to={"/" + (index - 1)}
+							className='p-2 border-1 border-solid mx-2'>
+							&#60; Previous
+						</Link>
+					)}
+					{index < 199 && (
+						<Link
+							to={"/" + (index + 1)}
+							className='p-2 border-1 border-solid mx-2'>
+							Next &#62;
+						</Link>
+					)}
+				</div>
 			</div>
 			<div className='heading text-3xl text-center'>Country-wise Details</div>
 			<div className='flex items-center justify-center space-x-8'>

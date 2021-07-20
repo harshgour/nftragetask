@@ -1,6 +1,5 @@
 {
 	"name": "nftragetask",
-	"homepage": "https://harshgour.github.io",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
@@ -9,6 +8,7 @@
 		"@testing-library/react": "^11.1.0",
 		"@testing-library/user-event": "^12.1.10",
 		"axios": "^0.21.1",
+		"gh-pages": "^3.2.3",
 		"node-sass": "^4.14.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",

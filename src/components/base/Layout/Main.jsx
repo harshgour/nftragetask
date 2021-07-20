@@ -7,13 +7,26 @@ import TableListing from "../../tableListing";
 
 function Main({ className }) {
 	const [data, setData] = useState([]);
+	const [loading, setLoading] = useState(false);
+
+	const showLoading = () => {
+		setLoading(true);
+	};
+
+	const hideLoading = () => {
+		setLoading(false);
+	};
 
 	useEffect(() => {
+		showLoading();
 		axios
 			.get(
 				"https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?limit=200&order=active_cases",
 			)
-			.then((data) => setData([...data.data.data.rows]))
+			.then((data) => {
+				setData([...data.data.data.rows]);
+				hideLoading();
+			})
 			.catch((err) => console.log("error", err));
 	}, []);
 
@@ -35,12 +48,12 @@ function Main({ className }) {
 			}>
 			<Switch>
 				<Route exact path='/'>
-					<CardListing data={data.slice(0, 10)} rows={rows} />
+					<CardListing data={data.slice(0, 10)} rows={rows} load={loading} />
 				</Route>
 				{data.map((item, index) => {
 					return (
 						<Route exact path={"/" + index} key={index}>
-							<CountryDetails data={item} />
+							<CountryDetails data={item} index={index} />
 						</Route>
 					);
 				})}
