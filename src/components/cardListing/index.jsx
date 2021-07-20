@@ -13,8 +13,10 @@ function CardListing({ data, rows, load }) {
 					View All
 				</Link>
 			</div>
-			{load && (
-				<div className='loader absolute top-1/4 left-1/2 transform -translate-x-1/2'></div>
+			{!load && (
+				<div
+					className='loader absolute top-1/4 left-1/2'
+					style={{ transform: "translateX(-50%)" }}></div>
 			)}
 			<div className='cards grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 py-6'>
 				{data.map((item, index) => (
