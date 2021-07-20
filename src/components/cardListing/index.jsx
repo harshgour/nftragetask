@@ -5,11 +5,11 @@ import CountryCards from "../base/Cards/CountryCards";
 function CardListing({ data, rows, load }) {
 	return (
 		<>
-			<div className='flex items-center justify-between'>
-				<div className='text-3xl font-semibold mb-4'>
+			<div className='grid grid-cols-12 place-items-end'>
+				<div className='text-2xl md:text-3xl font-semibold col-span-10 place-self-start'>
 					Top 10 Countries with Active Cases
 				</div>
-				<Link to='/all' className='text-blue-500'>
+				<Link to='/all' className='text-blue-500 col-span-2 text-center '>
 					View All
 				</Link>
 			</div>
